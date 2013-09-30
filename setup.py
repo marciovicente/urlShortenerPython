@@ -36,13 +36,22 @@ def save_url():
 		r.hset('urls:%d' % id, 'alias', alias)
 		r.hset('urls:%d' % id, 'url', url)
 		r.lpush('records', id) 
-		flash('Feito. Copie sua url http://localhost:5000/%s' % alias)
+		flash('http://localhost:5000/%s' % alias)
 
-	return render_template('index.html', alias=alias)
+	return redirect(url_for('index'))
 
-@app.route('/<string:url>/')
-def find():
-	return url
+@app.route('/<string:alias>/')
+def find(alias):
+	num_registros = r.lrange('records', 0, -1)
+	url = None
+	for id in num_registros:
+		record_alias = r.hget('urls:%s' % id, 'alias')
+		if record_alias == alias:
+			url = r.hget('urls:%s' % id, 'url')
+	if url:
+		return redirect(url)
+	else:
+		return False
 # run the app
 if __name__ == '__main__':
 	app.run(debug=True)

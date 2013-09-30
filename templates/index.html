@@ -10,20 +10,30 @@
 		<a href="#"><h1 class="title">UrlShortener - Flask & Redis</h1></a>
 	</header>
 
-	{% for item in urls %}
+<!-- 	{% for item in urls %}
 		<h4>{{item.url}}</h4>
 	{% endfor %}
 
 	{% if alias %}
 		{{ alias }}
 	{% endif %}
-
-	<form action="/save/" method="POST">
-		<label>
-			Digite a url
-			<input type="text" name="url" autocomplete="off">
-		</label>
-		<input type="submit" value="Salvar">
+ -->
+	
+	<form action="/save/" method="POST" class="saveUrl">
+		<input type="text" name="url" autocomplete="off" placeholder="Digite sua url">
+		<input type="submit" value="GO!">
 	</form>
+	
+	{% with messages = get_flashed_messages() %}
+  		{% if messages %}
+  			{% for message in messages %}
+  				<div class="success">
+  					<span class="title">Feito. Copie sua url</span>
+  					<h4 class="url">{{ message }}</h4>
+  				</div>
+  			{% endfor %}
+  		{% endif %}
+	{% endwith %}
+
 </body>
 </html>

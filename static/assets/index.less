@@ -1,5 +1,8 @@
-@gold: #fc0;
-
+@gold: #f1c40f;
+@blue: #3498db;
+.text-shadow(@x, @y, @blur, @color){
+	text-shadow: @x @y @blur @color;
+}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -19,7 +22,11 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	font-family: inherit;
 	vertical-align: baseline;
 	text-decoration: none;
-	color: #333;
+	color: #fff;
+}
+
+input{
+	margin: 0;
 }
 /* remember to define focus styles! */
 :focus {
@@ -28,7 +35,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 body {
 	line-height: 1;
 	color: black;
-	background:  #f2f2f2;
+	background:  #34495e;
 	font-family: Arial;
 }
 ol, ul {
@@ -53,20 +60,92 @@ blockquote, q {
 
 header{
 	width: 100%;
-	background: #333;
-	height: 40px;
+	background: #f2f2f2;
+	height: 45px;
 	padding: 5px;
 	text-align: center;
 	font-size: 30px;
-	line-height: 40px;
+	line-height: 35px;
+	box-sizing: border-box;
 
 	.title{
-		color: #999;
+		color: #666;
 		display: inherit;
-		
+		.text-shadow(1px,1px, 0, #fff);
+
 		&:hover{
-			color: @gold;
+			color: #fc0;
 		}
 	}
+}
 
+.saveUrl{
+	margin: 90px auto 30px;
+	width: 535px;
+
+	input{
+		&[type="text"]{
+			border: none;
+			width: 430px;
+			height: 40px;
+			padding: 10px;
+			font-size: 30px;
+			color: #666;
+		}
+
+		&[type="submit"]{
+			background: @gold;
+			border: none;
+			padding: 12px 6px;
+			font-weight: bold;
+			font-size: 30px;
+			color: #fff;
+			cursor: pointer;
+			margin: 0;
+
+			&:hover{
+				background: @blue;
+			}
+		}
+	}
+	
+}
+
+.success{
+	width: 450px;
+	padding: 20px 0px;
+	margin: 0 auto;
+	background: @gold;
+	text-align: center;
+
+	&:before{
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 20px;
+		border-color: transparent transparent @gold transparent;
+		content: " ";
+		margin-top: -60px;
+		margin-left: -200px;
+		position: absolute;
+
+	}
+
+	.title{
+		width: 100%;
+		font-size: 20px;
+		display: inherit;
+		color: rgba(0,0,0,.3);
+	}
+		
+	.url{
+		font-size: 30px;
+		margin-top: 20px;
+		display: inherit;
+	}
+}
+
+
+.invert{
+	-webkit-filter: invert(1);
 }

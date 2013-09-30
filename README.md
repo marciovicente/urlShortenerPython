@@ -1,3 +1,3 @@
-Simple Url Shortener created with Flask + Redis
+Simple Url Shortener build with Flask + Redis
 
 

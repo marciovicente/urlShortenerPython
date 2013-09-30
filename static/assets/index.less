@@ -34,8 +34,8 @@ input{
 }
 body {
 	line-height: 1;
-	color: black;
-	background:  #34495e;
+	background: url(../images/black_lozenge.png) #000;
+	// background:  #34495e;
 	font-family: Arial;
 }
 ol, ul {
@@ -67,6 +67,9 @@ header{
 	font-size: 30px;
 	line-height: 35px;
 	box-sizing: border-box;
+  -webkit-box-shadow: 0 0 20px #000;
+  -moz-box-shadow: 0 0 20px #000;
+  box-shadow: 0 0 20px #000;
 
 	.title{
 		color: #666;
@@ -84,24 +87,29 @@ header{
 	width: 535px;
 
 	input{
-		&[type="text"]{
-			border: none;
-			width: 430px;
-			height: 40px;
-			padding: 10px;
-			font-size: 30px;
-			color: #666;
+
+    &[type="text"]{
+      border: none;
+      width: 430px;
+      height: 40px;
+      padding: 10px;
+      font-size: 30px;
+      color: #666;
+      -webkit-box-shadow: 10px 0 50px #000;
+      -moz-box-shadow: 10px 0 50px #000;
+      box-shadow: 10px 0 50px #000;
 		}
 
 		&[type="submit"]{
 			background: @gold;
-			border: none;
-			padding: 12px 6px;
+      border: none;
+			padding: 13px 6px 12px;
 			font-weight: bold;
 			font-size: 30px;
 			color: #fff;
 			cursor: pointer;
 			margin: 0;
+      top: 1px;
 
 			&:hover{
 				background: @blue;
@@ -117,6 +125,9 @@ header{
 	margin: 0 auto;
 	background: @gold;
 	text-align: center;
+  -webkit-box-shadow: 0 0 20px #000;
+  -moz-box-shadow: 0 0 20px #000;
+  box-shadow: 0 0 20px #000;
 
 	&:before{
 		width: 0;
@@ -139,9 +150,18 @@ header{
 	}
 		
 	.url{
-		font-size: 30px;
-		margin-top: 20px;
+		font-size: 28px;
+    color: #fff;
+    text-align: center;
 		display: inherit;
+    border: none;
+    background: none;
+    resize: none;
+    width: 95%;
+    margin: 20px auto 0;
+    height: 40px;
+
+
 	}
 }
 

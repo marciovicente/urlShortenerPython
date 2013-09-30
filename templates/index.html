@@ -20,7 +20,7 @@
  -->
 	
 	<form action="/save/" method="POST" class="saveUrl">
-		<input type="text" name="url" autocomplete="off" placeholder="Digite sua url">
+		<input type="text" name="url" autocomplete="off" placeholder="Digite sua url" class="input">
 		<input type="submit" value="GO!">
 	</form>
 	
@@ -29,11 +29,20 @@
   			{% for message in messages %}
   				<div class="success">
   					<span class="title">Feito. Copie sua url</span>
-  					<h4 class="url">{{ message }}</h4>
+  					<textarea class="url" readonly="true">{{ message }}</textarea>
   				</div>
   			{% endfor %}
   		{% endif %}
 	{% endwith %}
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+	<script>
+		$(document).on('focus', '.input', function(){
+			$(this).val('http://');
+		});
+
+		$('.success textarea').select();
+	</script>
 
 </body>
 </html>

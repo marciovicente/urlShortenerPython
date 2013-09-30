@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title> URL Shortener - Flask & Redis</title>
+	<link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+	<header>
+		<a href="#"><h1 class="title">UrlShortener - Flask & Redis</h1></a>
+	</header>
+
+	{% for item in urls %}
+		<h4>{{item.url}}</h4>
+	{% endfor %}
+
+	{% if alias %}
+		{{ alias }}
+	{% endif %}
+
+	<form action="/save/" method="POST">
+		<label>
+			Digite a url
+			<input type="text" name="url" autocomplete="off">
+		</label>
+		<input type="submit" value="Salvar">
+	</form>
+</body>
+</html>
